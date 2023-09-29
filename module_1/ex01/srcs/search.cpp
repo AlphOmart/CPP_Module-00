@@ -21,34 +21,9 @@ void	PhoneBook::search()
 			for (int j = 0; j < 3; j++)
 			{
 				std::cout << std::right << std::setw(10)
-				<< print_trunc(contact[i].info[j]) << "|";
+						  << print_trunc(contact[i].info[j]) << "|";
 			}
 			std::cout << std::endl;
 		}
 	}
-}
-
-typedef void (PhoneBook::*allcmd)();
-
-int main(void)
-{
-	PhoneBook	directory;
-	std::string	input;
-	std::map<std::string, allcmd> command;
-
-	command["ADD"] = &PhoneBook::add;
-	command["SEARCH"] = &PhoneBook::search;
-
-	directory.index = -1;
-	directory.cont_nbr = 0;
-	while (42)
-	{
-		std::cout << "\033[34m" << "Enter a command : " << "\033[0m";
-		std::getline(std::cin, input);
-		if (command.find(input) != command.end())
-			(directory.*command[input])();
-		else if (input == "EXIT")
-			break ;
-	}
-	return (0);
 }

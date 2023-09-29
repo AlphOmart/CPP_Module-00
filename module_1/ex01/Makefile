@@ -3,8 +3,9 @@ NAME		=	phonebook
 CC			=	c++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 #---PHILO_VAR----------------------------------
-SRC			=	phonebook.cpp \
-				add.cpp
+SRC			=	srcs/phonebook.cpp \
+				srcs/add.cpp \
+				srcs/search.cpp
 
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
@@ -18,7 +19,7 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS) $(HEADER)
 				@echo "\033[0;33m\nCOMPILING phonebook...\n"
-				@$(CC) $(FLAGS)  -I $(HEADER_DIR) $(OBJS) -o $@
+				@$(CC) $(FLAGS) -I $(HEADER_DIR) $(OBJS) -o $@
 				@echo "\033[1;32m./phonebook created\n"
 
 $(OBJS_DIR)%.o:	%.cpp | dir
@@ -27,7 +28,7 @@ $(OBJS_DIR)%.o:	%.cpp | dir
 dir:			$(OBJS_DIR)
 
 $(OBJS_DIR):
-				@mkdir -p $(OBJS_DIR)
+				@mkdir -p $(OBJS_DIR)srcs
 
 clean:
 				@echo "\033[0;31mDeleting phonebook object...\n"
