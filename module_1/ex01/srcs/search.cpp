@@ -50,7 +50,7 @@ std::string	print_trunc(std::string str)
 void	PhoneBook::search()
 {
 	if (cont_nbr == 0)
-		std::cout << "\033[31m""the directory is empty""\033[0m" << std::endl;
+		std::cout << "\033[31m*the directory is empty*\033[0m" << std::endl;
 	else
 	{
 		std::cout << "\033[32m" << "| id|  1st_name| last_name|  nickname|" << "\033[0m" << std::endl;
@@ -60,7 +60,7 @@ void	PhoneBook::search()
 			for (int j = 0; j < 3; j++)
 			{
 				std::cout << std::right << std::setw(10)
-						  << print_trunc(contact[i].info[j]) << "|";
+							<< print_trunc(contact[i].info[j]) << "|";
 			}
 			std::cout << std::endl;
 		}
