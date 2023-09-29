@@ -17,7 +17,7 @@ $(NAME):		$(OBJS)
 				@echo "\033[1;32m./megaphone created\n"
 
 $(OBJS_DIR)%.o:	%.cpp | dir
-				$(CC) $(FLAGS) -c $< -o $@
+				@$(CC) $(FLAGS) -c $< -o $@
 
 dir:			$(OBJS_DIR)
 
