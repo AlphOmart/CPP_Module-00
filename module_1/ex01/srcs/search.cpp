@@ -5,7 +5,7 @@ void	PhoneBook::print_id(int id)
 	std::string fields[5] = {"first name", "last name", "nickname", \
 							"phone number", "darkest secret"};
 	for (int i = 0; i < 5; i++)
-			std::cout << "\033[36m" << fields[i] << " : ""\033[0m" << contact[id].info[i] << "\033[0m" << std::endl;
+			std::cout << "\033[36m" << fields[i] << " : \033[0m" << contact[id].info[i] << "\033[0m" << std::endl;
 }
 
 void	PhoneBook::select(int nbr)
@@ -15,7 +15,7 @@ void	PhoneBook::select(int nbr)
 
 	while (42)
 	{
-		std::cout << "\033[36m""choose an identifier : ""\033[0m";
+		std::cout << "\033[36mChoose an identifier : \033[0m";
 		std::getline(std::cin, id);
 		try
 		{
@@ -26,15 +26,15 @@ void	PhoneBook::select(int nbr)
 				break ;
 			}
 			else
-				std::cout << "\033[31m""please enter valid id""\033[0m" << std::endl;
+				std::cout << "\033[31m*Please, enter a valid id*\033[0m" << std::endl;
 		}
 		catch (const std::invalid_argument& e)
 		{
-			std::cout << "\033[31m""Please Choose a Valid id""\033[0m" << std::endl;
+			std::cout << "\033[31m*Please, enter a Valid id*\033[0m" << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
-			std::cout << "\033[31m""Please Choose a Valid id""\033[0m" << std::endl;
+			std::cout << "\033[31m*Please, enter a Valid id*\033[0m" << std::endl;
 		}
 	}
 }
