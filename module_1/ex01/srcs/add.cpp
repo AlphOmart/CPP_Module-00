@@ -7,6 +7,8 @@ void	Contact::add_name()
 
 	for (int i = 0; i < 5; i++)
 	{
+		if (!info[i].empty())
+			info[i] = "";
 		while (info[i].empty())
 		{
 			std::cout << "\033[36m" << "add " << fields[i] << " : " << "\033[0m";
@@ -21,8 +23,8 @@ void	PhoneBook::add()
 {
 	if (this->index == -1 || 7 < this->index)
 		this->index = 0;
-	contact[this->index].add_name();
-	this->index++;
 	if (cont_nbr < 8)
 		this->cont_nbr++;
+	this->contact[this->index].add_name();
+	this->index++;
 }
