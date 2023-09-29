@@ -53,7 +53,7 @@ void	PhoneBook::search()
 		std::cout << "\033[31m*the directory is empty*\033[0m" << std::endl;
 	else
 	{
-		std::cout << "\033[32m" << "| id|  1st_name| last_name|  nickname|" << "\033[0m" << std::endl;
+		std::cout << "\033[32m| id|  1st_name| last_name|  nickname|\033[0m" << std::endl;
 		for (int i = 0; i < cont_nbr; i++)
 		{
 			std::cout << "|  " << i + 1 << "|";
