@@ -1,4 +1,25 @@
-#include "classes.hpp"
+#include "../header/classes.hpp"
+
+void	PhoneBook::print_id(int id)
+{
+	std::string fields[5] = {"first name", "last name", "nickname", \
+							"phone number", "darkest secret"};
+	for (int i = 0; i < 5; i++)
+			std::cout << "\033[36m" << fields[i] << " : " << "\033[0m" << contact[id].info[i] << "\033[0m" << std::endl;
+}
+
+void	PhoneBook::select(int nbr)
+{
+	std::string id;
+
+	while (id.empty())
+	{
+		std::cout << "\033[36m""choose an identifier : ""\033[0m";
+		std::getline(std::cin, id);
+		if ((std::stoi(id) - 1) < nbr)
+			print_id(std::stoi(id) - 1);
+	}
+}
 
 std::string	print_trunc(std::string str)
 {
@@ -25,5 +46,6 @@ void	PhoneBook::search()
 			}
 			std::cout << std::endl;
 		}
+		select(cont_nbr);
 	}
 }

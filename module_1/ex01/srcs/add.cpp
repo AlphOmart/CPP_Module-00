@@ -1,4 +1,4 @@
-#include "classes.hpp"
+#include "../header/classes.hpp"
 
 void	Contact::add_name()
 {
