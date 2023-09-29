@@ -12,11 +12,12 @@ void	Contact::add_name()
 	}
 }
 
-void	PhoneBook::add(int index)
+void	PhoneBook::add()
 {
-	contact[index].add_name();
-	if (index >= 7)
-		index = 0;
-	else
-		index++;
+	if (this->index == -1 || 7 < this->index)
+		this->index = 0;
+	contact[this->index].add_name();
+	this->index++;
+	if (cont_nbr < 8)
+		this->cont_nbr++;
 }
