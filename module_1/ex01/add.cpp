@@ -7,8 +7,10 @@ void	Contact::add_name()
 
 	for (int i = 0; i < 5; i++)
 	{
-		std::cout << "add " << fields[i] << " : ";
-		std::cin >> info[i];
+		std::cout << "\033[36m" << "add " << fields[i] << " : " << "\033[0m";
+//		std::cin >> info[i];
+		while (info[i].empty())
+			std::getline(std::cin, info[i]);;
 	}
 }
 
