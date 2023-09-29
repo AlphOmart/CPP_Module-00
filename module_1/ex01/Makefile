@@ -8,17 +8,21 @@ SRC			=	phonebook.cpp \
 
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
+HEADER_DIR	=	header/
+HEADER		=	header/classes.hpp \
+				header/Contact.hpp \
+				header/PhoneBook.hpp
 #---RULES----------------------------------------
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(HEADER)
 				@echo "\033[0;33m\nCOMPILING phonebook...\n"
-				@$(CC) $(FLAGS) $(OBJS) -o $@
+				@$(CC) $(FLAGS)  -I $(HEADER_DIR) $(OBJS) -o $@
 				@echo "\033[1;32m./phonebook created\n"
 
 $(OBJS_DIR)%.o:	%.cpp | dir
-				@$(CC) $(FLAGS) -c $< -o $@
+				@$(CC) $(FLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 dir:			$(OBJS_DIR)
 

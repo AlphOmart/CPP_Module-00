@@ -1,6 +1,4 @@
 #include "classes.hpp"
-#include <iomanip>
-#include <map>
 
 std::string	print_trunc(std::string str)
 {
@@ -48,10 +46,7 @@ int main(void)
 		std::cout << "\033[34m" << "Enter a command : " << "\033[0m";
 		std::getline(std::cin, input);
 		if (command.find(input) != command.end())
-		{
-			// Si l'entrée de l'utilisateur correspond à une fonction, l'exécuter
 			(directory.*command[input])();
-		}
 		else if (input == "EXIT")
 			break ;
 	}
