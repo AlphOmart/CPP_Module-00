@@ -5,7 +5,7 @@ void	PhoneBook::print_id(int id)
 	std::string fields[5] = {"first name", "last name", "nickname", \
 							"phone number", "darkest secret"};
 	for (int i = 0; i < 5; i++)
-			std::cout << "\033[36m" << fields[i] << " : \033[0m" << contact[id].info[i] << "\033[0m" << std::endl;
+			std::cout << "\033[35m" << fields[i] << " : \033[0m" << contact[id].info[i] << "\033[0m" << std::endl;
 }
 
 void	PhoneBook::select(int nbr)
@@ -53,16 +53,16 @@ void	PhoneBook::search()
 		std::cout << "\033[31m*the directory is empty*\033[0m" << std::endl;
 	else
 	{
-		std::cout << "\033[32m| id|  1st_name| last_name|  nickname|\033[0m" << std::endl;
+		std::cout << "\033[35m| id|  1st_name| last_name|  nickname|\033[0m" << std::endl;
 		for (int i = 0; i < cont_nbr; i++)
 		{
-			std::cout << "|  " << i + 1 << "|";
+			std::cout << "\033[35m|  \033[33m" << i + 1 << "\033[35m|";
 			for (int j = 0; j < 3; j++)
 			{
-				std::cout << std::right << std::setw(10)
-							<< print_trunc(contact[i].info[j]) << "|";
+				std::cout << "\033[33m" << std::right << std::setw(10)
+							<< print_trunc(contact[i].info[j]) << "\033[35m|";
 			}
-			std::cout << std::endl;
+			std::cout << "\033[0m" << std::endl;
 		}
 		select(cont_nbr);
 	}
