@@ -1,8 +1,6 @@
 #include "../header/classes.hpp"
 
-
-
-void	Contact::add_name()
+void	Contact::add_info()
 {
 	std::string fields[5] = {"first name", "last name", "nickname", \
 							"phone number", "darkest secret"};
@@ -25,8 +23,8 @@ void	PhoneBook::add()
 {
 	if (this->index == -1 || 7 < this->index)
 		this->index = 0;
-	if (cont_nbr < 8)
+	if (this->cont_nbr < 8)
 		this->cont_nbr++;
-	this->contact[this->index].add_name();
+	this->contact[this->index].add_info();
 	this->index++;
 }
