@@ -1,5 +1,7 @@
 #include "../header/classes.hpp"
 
+
+
 void	Contact::add_name()
 {
 	std::string fields[5] = {"first name", "last name", "nickname", \
@@ -11,10 +13,10 @@ void	Contact::add_name()
 			info[i] = "";
 		while (info[i].empty())
 		{
-			std::cout << "\033[36mAdd " << fields[i] << " : \033[0m";
+			std::cout << L_BLUE"Add " << fields[i] << " : "WHITE;
 			std::getline(std::cin, info[i]);
 			if (info[i].empty())
-				std::cout << "\033[31m*please enter valid information*\033[0m" << std::endl;
+				std::cout << NOT_INF << std::endl;
 		}
 	}
 }

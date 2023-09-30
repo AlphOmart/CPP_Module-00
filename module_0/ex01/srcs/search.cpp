@@ -1,11 +1,13 @@
 #include "../header/classes.hpp"
 
+#define VIOLET "\033[35m"
+#define YELLOW "\033[33m"
 void	PhoneBook::print_id(int id)
 {
 	std::string fields[5] = {"first name", "last name", "nickname", \
 							"phone number", "darkest secret"};
 	for (int i = 0; i < 5; i++)
-			std::cout << "\033[35m" << fields[i] << " : \033[0m" << contact[id].info[i] << "\033[0m" << std::endl;
+			std::cout << VIOLET + fields[i] + " : "WHITE + contact[id].info[i] << std::endl;
 }
 
 void	PhoneBook::select(int nbr)
@@ -15,7 +17,7 @@ void	PhoneBook::select(int nbr)
 
 	while (42)
 	{
-		std::cout << "\033[36mChoose an identifier : \033[0m";
+		std::cout << CHOOSE;
 		std::getline(std::cin, id);
 		try
 		{
@@ -26,15 +28,11 @@ void	PhoneBook::select(int nbr)
 				break ;
 			}
 			else
-				std::cout << "\033[31m*Please, enter a valid id*\033[0m" << std::endl;
+				std::cout << NOT_ID << std::endl;
 		}
-		catch (const std::invalid_argument& e)
+		catch (const std::exception& e)
 		{
-			std::cout << "\033[31m*Please, enter a Valid id*\033[0m" << std::endl;
-		}
-		catch (const std::out_of_range& e)
-		{
-			std::cout << "\033[31m*Please, enter a Valid id*\033[0m" << std::endl;
+			std::cout << NOT_ID << std::endl;
 		}
 	}
 }
@@ -50,19 +48,19 @@ std::string	print_trunc(std::string str)
 void	PhoneBook::search()
 {
 	if (cont_nbr == 0)
-		std::cout << "\033[31m*the directory is empty*\033[0m" << std::endl;
+		std::cout << EMPTY_DIR << std::endl;
 	else
 	{
-		std::cout << "\033[35m| id|  1st_name| last_name|  nickname|\033[0m" << std::endl;
+		std::cout << TITLE << std::endl;
 		for (int i = 0; i < cont_nbr; i++)
 		{
-			std::cout << "\033[35m|  \033[33m" << i + 1 << "\033[35m|";
+			std::cout << VIOLET"|  "WHITE << i + 1 << VIOLET"|";
 			for (int j = 0; j < 3; j++)
 			{
-				std::cout << "\033[33m" << std::right << std::setw(10)
-							<< print_trunc(contact[i].info[j]) << "\033[35m|";
+				std::cout << YELLOW << std::right << std::setw(10)
+							<< print_trunc(contact[i].info[j]) << VIOLET"|";
 			}
-			std::cout << "\033[0m" << std::endl;
+			std::cout << WHITE << std::endl;
 		}
 		select(cont_nbr);
 	}

@@ -3,7 +3,7 @@ NAME		=	phonebook
 CC			=	c++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 #---PHILO_VAR----------------------------------
-SRC			=	srcs/phonebook.cpp \
+SRC			=	srcs/main.cpp \
 				srcs/add.cpp \
 				srcs/search.cpp
 
