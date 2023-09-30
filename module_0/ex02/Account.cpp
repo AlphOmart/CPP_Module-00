@@ -54,7 +54,18 @@ void	Account::displayAccountsInfos(void)
 //TODO
 Account::Account( int initial_deposit )
 {
-	(void)initial_deposit;
+	_totalAmount += initial_deposit;
+	_nbAccounts++;
+
+	this->_accountIndex =_nbAccounts - 1;
+	this->_amount = initial_deposit;
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
+
+	_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ';'
+			  << "amount:" << this->_amount << ';'
+			  << "created" << std::endl;
 }
 //TODO
 Account::~Account( void )
@@ -83,5 +94,5 @@ int		Account::checkAmount( void ) const
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
-//	std::cout << "index:" << _accountIndex << std::endl;
+	std::cout << "Index:" << _accountIndex << std::endl;
 }
