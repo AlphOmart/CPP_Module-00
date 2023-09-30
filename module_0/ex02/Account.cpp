@@ -27,12 +27,11 @@ int	Account::getNbWithdrawals(void)
 {
 	return (_totalNbWithdrawals);
 }
-//TODO
+
 void	Account::_displayTimestamp( void )
 {
 	std::time_t	time = std::time(NULL);
-	std::tm* timeinfo =std::localtime(&time);
-
+	std::tm*	timeinfo =std::localtime(&time);
 
 	std::cout << "[" << std::setfill('0')
 			<< std::setw(4) << 1900 + timeinfo->tm_year
@@ -44,7 +43,7 @@ void	Account::_displayTimestamp( void )
 			<< std::setw(2) << timeinfo->tm_sec
 			<< "]";
 }
-//TODO
+
 void	Account::displayAccountsInfos(void)
 {
 	_displayTimestamp();
@@ -83,4 +82,6 @@ int		Account::checkAmount( void ) const
 //TODO
 void	Account::displayStatus( void ) const
 {
+	_displayTimestamp();
+//	std::cout << "index:" << _accountIndex << std::endl;
 }
