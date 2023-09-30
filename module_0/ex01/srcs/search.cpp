@@ -1,7 +1,5 @@
 #include "../header/classes.hpp"
 
-#define VIOLET "\033[35m"
-#define YELLOW "\033[33m"
 void	PhoneBook::print_id(int id)
 {
 	std::string fields[5] = {"first name", "last name", "nickname", \
