@@ -78,24 +78,52 @@ Account::~Account( void )
 //TODO
 void	Account::makeDeposit(int deposit)
 {
-	(void)deposit;
+	_totalAmount += deposit;
+	this->_amount += deposit;
+	_totalNbDeposits += 1;
+	this->_nbDeposits += 1;
+
+	_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ';'
+			  << "p_amount:" << this->_amount - deposit << ';'
+			  << "deposit:" << deposit << ';'
+			  << "amount:" << this->_amount << ';'
+			  << "nb_deposits:" << this->_nbDeposits << std::endl;
 }
 //TODO
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	(void) withdrawal;
-	return (true);
+	_displayTimestamp();
+	if (this->_amount < withdrawal)
+	{
+		std::cout << "index:" << this->_accountIndex << ';'
+				  << "p_amount:" << this->_amount << ';'
+				  << "withdrawal:refused" << std::endl;
+		return false;
+	}
+	_totalAmount -= withdrawal;
+	_totalNbWithdrawals++;
+
+	this->_amount -= withdrawal;
+	this->_nbWithdrawals += 1;
+	std::cout << "index:" << this->_accountIndex << ';'
+			  << "p_amount:" << this->_amount + withdrawal << ';'
+			  << "withdrawal:" << withdrawal << ';'
+			  << "amount:" << this->_amount << ';'
+			  << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+	return true;
 }
 //TODO
 int		Account::checkAmount( void ) const
 {
-	int	i;
-	i = 0;
-	return (i);
+	return (this->_amount);
 }
 //TODO
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
-	std::cout << "Index:" << _accountIndex << std::endl;
+	std::cout << "index:" << _accountIndex << ';'
+			  << "amount:" << _amount << ';'
+			  << "deposits:" << _nbDeposits << ';'
+			  << "withdrawals:" << _nbWithdrawals << std::endl;
 }
