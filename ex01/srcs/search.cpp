@@ -17,6 +17,11 @@ void	PhoneBook::select(int nbr)
 	{
 		std::cout << CHOOSE;
 		std::getline(std::cin, id);
+		if (!std::cin)
+		{
+			std::cout << RED"\ninput was close !\nExiting..."WHITE << std::endl;
+			exit(1);
+		}
 		try
 		{
 			nbr_id = std::stoi(id);

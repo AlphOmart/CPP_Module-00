@@ -18,6 +18,7 @@
 # define TITLE "\033[35m| id|  1st_name| last_name|  nickname|\033[0m"
 
 //colors
+# define RED "\033[31m"
 # define WHITE "\033[0m"
 # define L_BLUE "\033[36m"
 # define VIOLET "\033[35m"

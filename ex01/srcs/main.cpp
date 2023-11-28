@@ -1,22 +1,23 @@
 #include "../header/classes.hpp"
 
-typedef void (PhoneBook::*allcmd)();
-
 int main(void)
 {
 	PhoneBook	directory(-1, 0);
 	std::string	input;
-	std::map<std::string, allcmd> command;
-
-	command["ADD"] = &PhoneBook::add;
-	command["SEARCH"] = &PhoneBook::search;
 
 	while (42)
 	{
 		std::cout << PROMPT;
 		std::getline(std::cin, input);
-		if (command.find(input) != command.end())
-			(directory.*command[input])();
+		if (!std::cin)
+		{
+			std::cout << RED"\ninput was close !\nExiting..."WHITE << std::endl;
+			exit(1);
+		}
+		if (input == "ADD")
+			directory.add();
+		else if (input == "SEARCH")
+			directory.search();
 		else if (input == "EXIT")
 			break ;
 		else

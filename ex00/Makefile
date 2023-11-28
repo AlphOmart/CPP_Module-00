@@ -1,6 +1,6 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	megaphone
-CC			=	c++
+CXX			=	c++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 #---PHILO_VAR----------------------------------
 SRC			=	megaphone.cpp
@@ -11,13 +11,13 @@ OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $
 				@echo "\033[0;33m\nCOMPILING megaphone...\n"
-				@$(CC) $(FLAGS) $(OBJS) -o $@
+				@$(CXX) $(FLAGS) $(OBJS) -o $@
 				@echo "\033[1;32m./megaphone created\n"
 
 $(OBJS_DIR)%.o:	%.cpp | dir
-				@$(CC) $(FLAGS) -c $< -o $@
+				@$(CXX) $(FLAGS) -c $< -o $@
 
 dir:			$(OBJS_DIR)
 
