@@ -3,15 +3,15 @@
 class  PhoneBook
 {
 private:
-	int		index;
-	int		cont_nbr;
+
+	Contact _contact[8];
+	int		_index;
+	int		_cont_nbr;
+
 public:
 
-
-	Contact contact[8];
-
 	PhoneBook(int val_1, int val_2)
-		: index(val_1),cont_nbr(val_2) {};
+		: _index(val_1), _cont_nbr(val_2) {};
 	~PhoneBook()
 	{};
 
@@ -20,3 +20,4 @@ public:
 	void	select(int nbr);
 	void	print_id(int id);
 };
+

@@ -2,7 +2,10 @@
 
 class Contact
 {
+private:
+	std::string	_info[5];
 public:
-	std::string	info[5];
-	void	add_info();
+
+	void		add_info();
+	std::string	get_info(int i);
 };

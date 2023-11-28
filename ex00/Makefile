@@ -11,7 +11,7 @@ OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) $
+$(NAME):		$(OBJS)
 				@echo "\033[0;33m\nCOMPILING megaphone...\n"
 				@$(CXX) $(FLAGS) $(OBJS) -o $@
 				@echo "\033[1;32m./megaphone created\n"
@@ -34,6 +34,7 @@ fclean:			clean
 				@rm -rf $(NAME)
 				@echo "\033[1;32mDone\n"
 
-re:				fclean all
+re:				fclean
+				$(MAKE) all
 
 .PHONY:			all clean fclean re

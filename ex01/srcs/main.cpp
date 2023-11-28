@@ -12,7 +12,7 @@ int main(void)
 		if (!std::cin)
 		{
 			std::cout << RED"\ninput was close !\nExiting..."WHITE << std::endl;
-			exit(1);
+			exit(0);
 		}
 		if (input == "ADD")
 			directory.add();

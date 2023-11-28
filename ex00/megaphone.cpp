@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
 
-static void	upscale(char *str)
+static void	upscale(const std::string str)
 {
-	for (int j = 0; str[j] != '\0'; j++)
-		std::cout << (char)toupper(str[j]);
+	for (std::string::const_iterator it = str.begin();
+		 it != str.end();
+		 ++it)
+		std::cout << (char) toupper(*it);
 }
 
 int main(int argc, char **argv)
