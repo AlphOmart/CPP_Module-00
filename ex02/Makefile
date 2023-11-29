@@ -39,6 +39,6 @@ fclean:			clean
 				@echo "\033[1;32mDone\n"
 
 re:				fclean
- 				make all
+				$(MAKE) all
 
 .PHONY:			all clean fclean re
