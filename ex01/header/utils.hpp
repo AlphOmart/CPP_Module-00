@@ -1,5 +1,5 @@
-#ifndef CLASSES_H
-# define CLASSES_H
+#ifndef UTILS_HPP
+# define UTILS_HPP
 
 # define RED "\033[31m"
 # define WHITE "\033[0m"

@@ -10,7 +10,7 @@ SRC			=	srcs/main.cpp \
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 HEADER_DIR	=	header/
-HEADER		=	header/classes.hpp \
+HEADER		=	header/utils.hpp \
 				header/Contact.hpp \
 				header/PhoneBook.hpp
 #---RULES----------------------------------------
@@ -40,6 +40,7 @@ fclean:			clean
 				@rm -rf $(NAME)
 				@echo "\033[1;32mDone\n"
 
-re:				fclean all
+re:				fclean
+				$(MAKE) all
 
 .PHONY:			all clean fclean re

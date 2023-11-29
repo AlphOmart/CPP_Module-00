@@ -1,4 +1,7 @@
-#include "../header/classes.hpp"
+#include "../header/utils.hpp"
+
+	PhoneBook::PhoneBook(int val_1, int val_2) : _index(val_1), _cont_nbr(val_2) {};
+	PhoneBook::~PhoneBook(){};
 
 void	PhoneBook::add()
 {

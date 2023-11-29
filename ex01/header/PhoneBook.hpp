@@ -1,4 +1,7 @@
-#include "classes.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+#include "utils.hpp"
 
 class  PhoneBook
 {
@@ -10,10 +13,8 @@ private:
 
 public:
 
-	PhoneBook(int val_1, int val_2)
-		: _index(val_1), _cont_nbr(val_2) {};
-	~PhoneBook()
-	{};
+	PhoneBook(int val_1, int val_2);
+	~PhoneBook();
 
 	void	add();
 	void	search();
@@ -21,3 +22,4 @@ public:
 	void	print_id(int id);
 };
 
+#endif
